@@ -1,0 +1,229 @@
+{
+  "custom": [],
+  "groups": [
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Fresh Vegetables",
+          "url": "https://www.shwapno.com/fresh-vegetable"
+        },
+        {
+          "enabled": false,
+          "name": "Fresh Fruits",
+          "url": "https://www.shwapno.com/fresh-fruit"
+        },
+        {
+          "enabled": false,
+          "name": "Meat & Fish",
+          "url": "https://www.shwapno.com/meat-fish"
+        },
+        {
+          "enabled": false,
+          "name": "Dairy & Eggs",
+          "url": "https://www.shwapno.com/dairy-eggs"
+        }
+      ],
+      "expanded": true,
+      "icon": "leaf",
+      "id": "fresh-food",
+      "name": "Fresh Food & Vegetables"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Rice & Flour",
+          "url": "https://www.shwapno.com/rice-flour"
+        },
+        {
+          "enabled": false,
+          "name": "Oil & Ghee",
+          "url": "https://www.shwapno.com/oil-ghee"
+        },
+        {
+          "enabled": false,
+          "name": "Spices & Masala",
+          "url": "https://www.shwapno.com/spices-masala"
+        },
+        {
+          "enabled": false,
+          "name": "Dal & Lentils",
+          "url": "https://www.shwapno.com/dal-lentils"
+        },
+        {
+          "enabled": false,
+          "name": "Salt & Sugar",
+          "url": "https://www.shwapno.com/salt-sugar"
+        }
+      ],
+      "expanded": true,
+      "icon": "shopping-basket",
+      "id": "groceries",
+      "name": "Groceries & Staples"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Biscuits & Cookies",
+          "url": "https://www.shwapno.com/biscuits"
+        },
+        {
+          "enabled": false,
+          "name": "Chips & Namkeen",
+          "url": "https://www.shwapno.com/chips"
+        },
+        {
+          "enabled": false,
+          "name": "Tea & Coffee",
+          "url": "https://www.shwapno.com/tea-coffee"
+        },
+        {
+          "enabled": false,
+          "name": "Soft Drinks",
+          "url": "https://www.shwapno.com/soft-drinks"
+        },
+        {
+          "enabled": false,
+          "name": "Juices",
+          "url": "https://www.shwapno.com/juice"
+        }
+      ],
+      "expanded": true,
+      "icon": "cookie-bite",
+      "id": "snacks",
+      "name": "Snacks & Beverages"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Bath & Shower",
+          "url": "https://www.shwapno.com/bath-shower"
+        },
+        {
+          "enabled": false,
+          "name": "Haircare",
+          "url": "https://www.shwapno.com/hair-care"
+        },
+        {
+          "enabled": false,
+          "name": "Skincare",
+          "url": "https://www.shwapno.com/skin-care"
+        },
+        {
+          "enabled": false,
+          "name": "Oral Care",
+          "url": "https://www.shwapno.com/oral-care"
+        },
+        {
+          "enabled": false,
+          "name": "Cosmetics",
+          "url": "https://www.shwapno.com/cosmetics"
+        }
+      ],
+      "expanded": true,
+      "icon": "spa",
+      "id": "personal-care",
+      "name": "Personal Care & Beauty"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Detergents",
+          "url": "https://www.shwapno.com/detergents"
+        },
+        {
+          "enabled": false,
+          "name": "Cleaners",
+          "url": "https://www.shwapno.com/cleaners"
+        },
+        {
+          "enabled": false,
+          "name": "Kitchen Accessories",
+          "url": "https://www.shwapno.com/kitchen-accessories"
+        },
+        {
+          "enabled": false,
+          "name": "Air Fresheners",
+          "url": "https://www.shwapno.com/air-fresheners"
+        }
+      ],
+      "expanded": true,
+      "icon": "home",
+      "id": "home-care",
+      "name": "Home & Cleaning"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Baby Food",
+          "url": "https://www.shwapno.com/baby-food"
+        },
+        {
+          "enabled": false,
+          "name": "Diapers & Wipes",
+          "url": "https://www.shwapno.com/diapers"
+        },
+        {
+          "enabled": false,
+          "name": "Baby Bath & Care",
+          "url": "https://www.shwapno.com/baby-care"
+        }
+      ],
+      "expanded": true,
+      "icon": "baby-carriage",
+      "id": "baby-care",
+      "name": "Baby & Mother Care"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Health Supplements",
+          "url": "https://www.shwapno.com/supplements"
+        },
+        {
+          "enabled": false,
+          "name": "First Aid",
+          "url": "https://www.shwapno.com/first-aid"
+        },
+        {
+          "enabled": false,
+          "name": "Medical Devices",
+          "url": "https://www.shwapno.com/medical-devices"
+        }
+      ],
+      "expanded": true,
+      "icon": "heartbeat",
+      "id": "health",
+      "name": "Health & Wellness"
+    },
+    {
+      "categories": [
+        {
+          "enabled": false,
+          "name": "Writing Supplies",
+          "url": "https://www.shwapno.com/writing"
+        },
+        {
+          "enabled": false,
+          "name": "Paper Products",
+          "url": "https://www.shwapno.com/paper"
+        },
+        {
+          "enabled": false,
+          "name": "Office Supplies",
+          "url": "https://www.shwapno.com/office-supplies"
+        }
+      ],
+      "expanded": true,
+      "icon": "pen",
+      "id": "stationery",
+      "name": "Stationery & Office"
+    }
+  ]
+}
