@@ -131,62 +131,67 @@ function updatePriceChangesAnalysis() {
 }
 
 async function loadData() {
-    // Load category structure from categories.js
-    if (typeof CATEGORY_DATA !== 'undefined') {
-        const cachedData = localStorage.getItem('categoryData');
-        
-        // ALWAYS use the latest structure from CATEGORY_DATA (categories.js)
-        categoryData = JSON.parse(JSON.stringify(CATEGORY_DATA));
-        
-        // If we have cached preferences, try to apply them to the new structure
-        if (cachedData) {
-            try {
-                const parsedCache = JSON.parse(cachedData);
-                
-                // Map of enabled categories from cache
-                const enabledMap = new Set();
-                parsedCache.groups.forEach(g => {
-                    if (g.categories) {
-                        g.categories.forEach(c => {
-                            if (c.enabled) enabledMap.add(c.name);
-                        });
-                    }
-                });
-                
-                // Apply enabled state to new structure
-                categoryData.groups.forEach(group => {
-                    // Start collapsed by default unless logically it should be open (omitted for now)
-                    group.expanded = false; 
-                    
-                    group.categories.forEach(cat => {
-                        if (enabledMap.has(cat.name)) {
-                            cat.enabled = true;
-                        } else {
-                            cat.enabled = false;
+    console.log('Fetching data with cache-busting...');
+    const timestamp = new Date().getTime();
+    
+    try {
+        // Load categories
+        const catRes = await fetch(`categories.json?t=${timestamp}`);
+        if (catRes.ok) {
+            const CATEGORY_DATA = await catRes.json();
+            const cachedData = localStorage.getItem('categoryData');
+            
+            // ALWAYS use the latest structure from CATEGORY_DATA
+            categoryData = JSON.parse(JSON.stringify(CATEGORY_DATA));
+            
+            // Apply cached preferences
+            if (cachedData) {
+                try {
+                    const parsedCache = JSON.parse(cachedData);
+                    const enabledMap = new Set();
+                    parsedCache.groups.forEach(g => {
+                        if (g.categories) {
+                            g.categories.forEach(c => {
+                                if (c.enabled) enabledMap.add(c.name);
+                            });
                         }
                     });
-                });
-                
-                // Restore custom categories
-                if (parsedCache.custom) {
-                    categoryData.custom = parsedCache.custom;
+                    
+                    categoryData.groups.forEach(group => {
+                        group.expanded = false; 
+                        group.categories.forEach(cat => {
+                            cat.enabled = enabledMap.has(cat.name);
+                        });
+                    });
+                    
+                    if (parsedCache.custom) {
+                        categoryData.custom = parsedCache.custom;
+                    }
+                } catch (e) {
+                    console.warn('Failed to migrate cached categories:', e);
                 }
-                
-            } catch (e) {
-                console.warn('Failed to migrate cached category preferences:', e);
-                // Fallback to default state (all disabled)
-                 categoryData.groups.forEach(group => {
+            } else {
+                // Default to all disabled
+                categoryData.groups.forEach(group => {
                     group.categories.forEach(cat => cat.enabled = false);
                 });
             }
-        } else {
-            // First run: ensure all disabled
-             categoryData.groups.forEach(group => {
-                group.categories.forEach(cat => cat.enabled = false);
-            });
         }
-    } else {
-        console.error('❌ CATEGORY_DATA not found! Make sure categories.js is loaded.');
+    } catch (e) {
+        console.error('❌ Failed to load categories:', e);
+    }
+
+    try {
+        // Load products
+        const dataRes = await fetch(`data.json?t=${timestamp}`);
+        if (dataRes.ok) {
+            window.productData = await dataRes.json();
+        } else {
+            window.productData = {};
+        }
+    } catch (e) {
+        console.error('❌ Failed to load product data:', e);
+        window.productData = {};
     }
 }
 

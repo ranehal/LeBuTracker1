@@ -27,7 +27,7 @@ def save_data(data):
         f.write(js_content)
 
 def load_categories():
-    """Load and flatten categories from the nested categories.js structure"""
+    """Load categories from the nested categories.js structure"""
     if os.path.exists(CATEGORIES_FILE):
         with open(CATEGORIES_FILE, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -40,30 +40,30 @@ def load_categories():
             end = content.rfind('};')
             if start == -1 or end == -1:
                 print("Error: Could not parse categories.js format")
-                return []
+                return {"groups": [], "custom": []}
             
             json_str = content[start:end+1]
-            category_data = json.loads(json_str)
-            
-            # Flatten all categories from all groups
-            all_categories = []
-            for group in category_data.get('groups', []):
-                for cat in group.get('categories', []):
-                    all_categories.append(cat)
-            
-            # Add custom categories if any
-            for custom in category_data.get('custom', []):
-                all_categories.append(custom)
-            
-            print(f"Loaded {len(all_categories)} categories from {len(category_data.get('groups', []))} groups")
-            return all_categories
+            return json.loads(json_str)
             
         except json.JSONDecodeError as e:
             print(f"Error parsing categories.js: {e}")
-            return []
+            return {"groups": [], "custom": []}
     
     print("categories.js not found")
-    return []
+    return {"groups": [], "custom": []}
+
+def flatten_categories(category_data):
+    """Flatten all categories from all groups for the scraper"""
+    all_categories = []
+    for group in category_data.get('groups', []):
+        for cat in group.get('categories', []):
+            all_categories.append(cat)
+    
+    # Add custom categories if any
+    for custom in category_data.get('custom', []):
+        all_categories.append(custom)
+    
+    return all_categories
 
 def normalize_unit(name, price_str):
     """
@@ -126,7 +126,7 @@ async def scrape_category(sem, context, category, current_data):
             
             # Auto-scroll to load all items
             last_height = await page.evaluate("document.body.scrollHeight")
-            for _ in range(5): # Limit scrolls
+            for _ in range(20): # Increased scroll limit to capture more items
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 await page.wait_for_timeout(2000)
                 new_height = await page.evaluate("document.body.scrollHeight")
@@ -204,9 +204,12 @@ async def scrape_category(sem, context, category, current_data):
 
 async def main():
     data = load_data()
-    categories = load_categories()
-    enabled_categories = [c for c in categories if c.get('enabled', True)]
+    category_data = load_categories()
+    all_categories = flatten_categories(category_data)
+    enabled_categories = [c for c in all_categories if c.get('enabled', True)]
     
+    print(f"Loaded {len(all_categories)} categories from {len(category_data.get('groups', []))} groups")
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
@@ -221,6 +224,11 @@ async def main():
         await browser.close()
         
     save_data(data)
+    
+    # Also sync the accurate categories to JSON for consistency
+    with open('categories.json', 'w', encoding='utf-8') as f:
+        json.dump(category_data, f, indent=2)
+
     print("Scraping complete. Data saved.")
 
 if __name__ == "__main__":
