@@ -106,11 +106,20 @@
                 <div id="price-changes-view" class="price-changes-panel" style="display:none;">
                     <div class="panel-header">
                         <h2>Price Changes Analysis</h2>
-                        <div class="view-controls">
-                            <select id="changes-range-select" class="search-input">
-                                <option value="yesterday">Past 24 Hours</option>
-                                <option value="week">Past Week</option>
-                                <option value="month">Past Month</option>
+                        <div class="view-controls" style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <select id="changes-cat-filter" class="search-input">
+                                <option value="all">All Categories</option>
+                                <!-- Populated by JS -->
+                            </select>
+                            <select id="changes-sort-options" class="search-input">
+                                <option value="drop_desc">Biggest Drop (%)</option>
+                                <option value="drop_asc">Biggest Rise (%)</option>
+                                <option value="abs_desc">Biggest Price Change (৳)</option>
+                                <option value="name_asc">Name A-Z</option>
+                            </select>
+                            <select id="changes-type-filter" class="search-input">
+                                <option value="normalized">Unit Price Changes</option>
+                                <option value="actual">Actual Price Changes</option>
                             </select>
                             <button id="close-changes-view" class="btn-icon" title="Back to Products"><i class="fas fa-times"></i></button>
                         </div>
@@ -224,30 +233,33 @@
 
     <!-- Detailed Chart Modal (Sci-Fi Style) -->
     <div id="chart-modal" class="modal">
-        <div class="modal-content large-modal sci-fi-modal">
+        <div class="modal-content full-screen-modal sci-fi-modal">
             <div class="modal-header">
                 <h2 id="chart-product-name"></h2>
-                <span class="close-modal" data-modal="chart-modal">&times;</span>
+                <div style="display:flex; gap:15px; align-items:center;">
+                    <span id="chart-product-unit" style="color:#888; font-size:0.9rem;"></span>
+                    <span class="close-modal" data-modal="chart-modal">&times;</span>
+                </div>
             </div>
-            <div class="chart-analytics">
+            <div class="chart-analytics full-width-analytics">
                 <div class="stat-card">
-                    <div class="stat-label">Current Price</div>
-                    <div class="stat-value" id="chart-current"></div>
+                    <div class="stat-label">Actual Price</div>
+                    <div class="stat-value" id="chart-actual"></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Average Price</div>
+                    <div class="stat-label">Unit Price</div>
+                    <div class="stat-value" id="chart-unit"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average (Unit)</div>
                     <div class="stat-value" id="chart-avg"></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Lowest Ever</div>
-                    <div class="stat-value" id="chart-min"></div>
+                    <div class="stat-label">Min/Max (Unit)</div>
+                    <div class="stat-value" id="chart-min-max"></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-label">Highest Ever</div>
-                    <div class="stat-value" id="chart-max"></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Today vs Yesterday</div>
+                    <div class="stat-label">Today Change</div>
                     <div class="stat-value" id="chart-change"></div>
                 </div>
                 <div class="stat-card">
@@ -255,12 +267,8 @@
                     <div class="stat-value" id="chart-volatility"></div>
                 </div>
             </div>
-            <div class="chart-container">
+            <div class="chart-container full-height-container">
                 <canvas id="price-history-chart"></canvas>
-            </div>
-            <div id="prediction-panel" class="prediction-panel">
-                <h3><i class="fas fa-robot"></i> Price Insights</h3>
-                <div id="prediction-content"></div>
             </div>
         </div>
     </div>

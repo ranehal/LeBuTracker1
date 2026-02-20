@@ -734,6 +734,25 @@ body.pitch-black {
     border-left-color: var(--accent-color);
 }
 
+.modal-content.full-screen-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+    height: 95vh;
+    padding: 20px;
+}
+
+.chart-analytics.full-width-analytics {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.chart-container.full-height-container {
+    flex: 1;
+    height: auto;
+    min-height: 0;
+}
+
 /* ==================== PRICE CHANGES MODAL ==================== */
 .modal-filters {
     padding: 15px;

@@ -64,70 +64,109 @@ function openDetailedChartByID(id) {
     if (p) openDetailedChart(p);
 }
 
+let currentChangesCat = 'all';
+let currentChangesSort = 'drop_desc';
+let currentChangesType = 'normalized'; // 'normalized' or 'actual'
+
 function updatePriceChangesAnalysis() {
-    const container = document.getElementById('price-changes-view');
+    const container = document.getElementById('price-changes-content-main');
     if (!container) return;
 
-    // We can reuse the existing range/sort/unit logic or just show everything changed recently
-    // Let's show all changes with a nice grid
+    // Populate category dropdown if not already done
+    const catSelect = document.getElementById('changes-cat-filter');
+    if (catSelect && catSelect.options.length <= 1) {
+        const categories = new Set();
+        allProducts.forEach(p => { if (p.category) categories.add(p.category); });
+        Array.from(categories).sort().forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            opt.innerText = cat;
+            catSelect.appendChild(opt);
+        });
+    }
+
     const changes = allProducts.map(p => {
         if (!p.history || p.history.length < 2) return null;
+        
+        // Filter by category
+        if (currentChangesCat !== 'all' && p.category !== currentChangesCat) return null;
         
         const startHist = p.history[0];
         const endHist = p.history[p.history.length - 1];
         
-        const startPrice = startHist.normalized_price || startHist.price;
-        const endPrice = endHist.normalized_price || endHist.price;
+        // Pick prices based on filter type
+        const useNorm = currentChangesType === 'normalized';
+        const startPrice = useNorm ? (startHist.normalized_price || startHist.price) : startHist.price;
+        const endPrice = useNorm ? (endHist.normalized_price || endHist.price) : endHist.price;
+        
         const diff = endPrice - startPrice;
         const percent = startPrice > 0 ? (diff / startPrice) * 100 : 0;
         
+        // Cross-reference with the other type for display
+        const otherStartPrice = !useNorm ? (startHist.normalized_price || startHist.price) : startHist.price;
+        const otherEndPrice = !useNorm ? (endHist.normalized_price || endHist.price) : endHist.price;
+        const otherDiff = otherEndPrice - otherStartPrice;
+        const otherPercent = otherStartPrice > 0 ? (otherDiff / otherStartPrice) * 100 : 0;
+
         return {
             product: p,
-            diff: diff,
-            percent: percent,
-            startPrice: startPrice,
-            endPrice: endPrice
+            diff, percent, startPrice, endPrice,
+            otherDiff, otherPercent, otherStartPrice, otherEndPrice,
+            isNormalized: useNorm
         };
     }).filter(c => c !== null && c.diff !== 0);
 
-    // Sort by largest drop first
-    changes.sort((a, b) => a.diff - b.diff);
+    // Sorting
+    changes.sort((a, b) => {
+        if (currentChangesSort === 'drop_desc') return a.percent - b.percent; // Most negative first
+        if (currentChangesSort === 'drop_asc') return b.percent - a.percent; // Most positive first
+        if (currentChangesSort === 'abs_desc') return Math.abs(b.diff) - Math.abs(a.diff);
+        if (currentChangesSort === 'name_asc') return a.product.name.localeCompare(b.product.name);
+        return 0;
+    });
 
-    let html = `
-        <div class="analysis-header" style="margin-bottom: 20px; display: flex; align-items: center; gap: 20px;">
-            <button class="sh-btn" onclick="switchView('grid')"><i class="fas fa-arrow-left"></i> Back to Grid</button>
-            <div style="font-size: 1.1rem; opacity: 0.8;"><i class="fas fa-chart-line"></i> Found <strong>${changes.length}</strong> products with price changes</div>
-        </div>
-        <div class="p-changes-grid">
-    `;
-
+    let html = '';
     if (changes.length === 0) {
-        html += '<div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #888;">No price changes detected in the current data.</div>';
+        html = '<div style="grid-column: 1/-1; padding: 60px; text-align: center; color: #888;">No price changes detected in the current filter.</div>';
     } else {
         changes.forEach(c => {
             const p = c.product;
             const isDrop = c.diff < 0;
+            const otherIsDrop = c.otherDiff < 0;
+            
             html += `
                 <div class="p-item-sh clickable" onclick="openDetailedChartByID('${p.id}')">
                     <div class="p-img-box">
                         <img src="${p.image}" class="product-image" loading="lazy">
-                        <div class="price-tag">${Math.round(c.endPrice)}</div>
+                        <div class="price-tag">${Math.round(c.endPrice)}৳</div>
                         <div class="price-change ${isDrop ? 'positive' : 'negative'}">
                             <i class="fas fa-arrow-${isDrop ? 'down' : 'up'}"></i>
-                            ${Math.abs(c.diff).toFixed(2)} (${Math.abs(c.percent).toFixed(1)}%)
+                            ${Math.abs(c.percent).toFixed(1)}%
                         </div>
                     </div>
                     <div class="p-detail-sh">
-                        <div class="product-name">${p.name}</div>
-                        <div class="product-unit">Was: ${c.startPrice.toFixed(2)}৳</div>
+                        <div class="product-name" title="${p.name}">${p.name}</div>
+                        <div style="font-size:0.75rem; display:flex; flex-direction:column; gap:2px;">
+                            <div style="color:${isDrop ? '#4caf50' : '#f44'}">
+                                ${c.isNormalized ? 'Unit' : 'Actual'}: <b>${c.startPrice.toFixed(0)}</b> → <b>${c.endPrice.toFixed(0)}</b> 
+                                (${c.diff > 0 ? '+' : ''}${c.diff.toFixed(1)})
+                            </div>
+                            <div style="opacity:0.6;">
+                                ${!c.isNormalized ? 'Unit' : 'Actual'}: ${c.otherStartPrice.toFixed(0)} → ${c.otherEndPrice.toFixed(0)} 
+                                (${c.otherDiff > 0 ? '+' : ''}${c.otherDiff.toFixed(1)} | ${c.otherPercent.toFixed(1)}%)
+                            </div>
+                        </div>
                     </div>
                 </div>
             `;
         });
     }
 
-    html += '</div>';
     container.innerHTML = html;
+    
+    // Update summary text
+    const title = document.getElementById('current-view-title');
+    if (title) title.innerText = `Changes: ${changes.length} items found`;
 }
 
 async function loadData() {
@@ -835,29 +874,42 @@ function setupEventListeners() {
         });
     });
 
-    // Price changes date range
-    document.querySelectorAll('input[name="date-range"]').forEach(radio => {
-        radio.addEventListener('change', (e) => {
-            const customRange = document.getElementById('custom-date-range');
-            if (e.target.value === 'custom') {
-                customRange.style.display = 'flex';
-            } else {
-                customRange.style.display = 'none';
-                updatePriceChanges(e.target.value);
-            }
-        });
-    });
+    // Close modal on outside click
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
 
-    document.getElementById('apply-custom-range').addEventListener('click', () => {
-        updatePriceChanges('custom');
-    });
-
-    document.querySelectorAll('#changes-sort, #changes-unit-filter').forEach(select => {
-        select.addEventListener('change', () => {
-            const range = document.querySelector('input[name="date-range"]:checked').value;
-            updatePriceChanges(range);
+    // New Price Changes Filters
+    const changesCat = document.getElementById('changes-cat-filter');
+    if (changesCat) {
+        changesCat.addEventListener('change', (e) => {
+            currentChangesCat = e.target.value;
+            updatePriceChangesAnalysis();
         });
-    });
+    }
+
+    const changesSort = document.getElementById('changes-sort-options');
+    if (changesSort) {
+        changesSort.addEventListener('change', (e) => {
+            currentChangesSort = e.target.value;
+            updatePriceChangesAnalysis();
+        });
+    }
+
+    const changesType = document.getElementById('changes-type-filter');
+    if (changesType) {
+        changesType.addEventListener('change', (e) => {
+            currentChangesType = e.target.value;
+            updatePriceChangesAnalysis();
+        });
+    }
+
+    const closeAnalysis = document.getElementById('close-changes-view');
+    if (closeAnalysis) {
+        closeAnalysis.onclick = () => switchView('grid');
+    }
 
     // Custom category
     document.getElementById('save-custom-category').addEventListener('click', saveCustomCategory);
@@ -1007,160 +1059,55 @@ function updateCompareModal() {
     });
 }
 
-// ==================== PRICE CHANGES ====================
-function openPriceChangesModal() {
-    const modal = document.getElementById('price-changes-modal');
-    modal.style.display = 'flex';
-    updatePriceChanges('yesterday');
-}
+// ==================== DETAILED CHART (FULL SCREEN) ====================
 
-function updatePriceChanges(range) {
-    const content = document.getElementById('price-changes-content');
-    const sort = document.getElementById('changes-sort').value;
-    const unitFlt = document.getElementById('changes-unit-filter').value;
-    
-    let startDate, endDate;
-    const today = new Date();
-    
-    if (range === 'yesterday') {
-        endDate = new Date(today);
-        startDate = new Date(today);
-        startDate.setDate(startDate.getDate() - 1);
-    } else if (range === 'week') {
-        endDate = new Date(today);
-        startDate = new Date(today);
-        startDate.setDate(startDate.getDate() - 7);
-    } else if (range === 'month') {
-        endDate = new Date(today);
-        startDate = new Date(today);
-        startDate.setMonth(startDate.getMonth() - 1);
-    } else if (range === 'custom') {
-        startDate = new Date(document.getElementById('start-date').value);
-        endDate = new Date(document.getElementById('end-date').value);
-    }
-    
-    // Calculate changes
-    const changes = allProducts.map(p => {
-        if (!p.history || p.history.length < 2) return null;
-        
-        // Filter by unit
-        if (unitFlt !== 'all' && p.unit_type !== unitFlt) return null;
-        
-        const startHist = p.history.find(h => new Date(h.date) >= startDate);
-        const endHist = p.history[p.history.length - 1];
-        
-        if (!startHist || !endHist) return null;
-        
-        const startPrice = startHist.normalized_price || startHist.price;
-        const endPrice = endHist.normalized_price || endHist.price;
-        const diff = endPrice - startPrice;
-        const percent = startPrice > 0 ? (diff / startPrice) * 100 : 0;
-        
-        return {
-            product: p,
-            diff: diff,
-            percent: percent,
-            startPrice: startPrice,
-            endPrice: endPrice
-        };
-    }).filter(c => c !== null && c.diff !== 0);
-    
-    // Sort
-    changes.sort((a, b) => {
-        if (sort === 'diff_desc') return a.diff - b.diff;
-        if (sort === 'diff_asc') return b.diff - a.diff;
-        if (sort === 'percent_desc') return a.percent - b.percent;
-        if (sort === 'percent_asc') return b.percent - a.percent;
-        return 0;
-    });
-    
-    // Render
-    content.innerHTML = '';
-    if (changes.length === 0) {
-        content.innerHTML = '<div style="padding:40px; text-align:center; color:#888;">No price changes found</div>';
-        return;
-    }
-    
-    changes.forEach(change => {
-        const p = change.product;
-        const isPositive = change.diff < 0;
-        
-        const card = document.createElement('div');
-        card.className = 'price-change-card';
-        card.innerHTML = `
-            <img src="${p.image}" class="change-card-img" alt="${p.name}">
-            <div class="change-card-info">
-                <div class="change-card-name">${p.name}</div>
-                <div class="change-card-unit">${p.unit || 'unit'}</div>
-            </div>
-            <div class="change-card-prices">
-                <div style="color:#888;">Was: ${change.startPrice.toFixed(2)}৳</div>
-                <div style="font-size:1.2rem; font-weight:bold;">Now: ${change.endPrice.toFixed(2)}৳</div>
-            </div>
-            <div class="change-card-diff ${isPositive ? 'positive' : 'negative'}">
-                <i class="fas fa-arrow-${isPositive ? 'down' : 'up'}"></i>
-                <div>${Math.abs(change.diff).toFixed(2)}৳</div>
-                <div>${Math.abs(change.percent).toFixed(1)}%</div>
-            </div>
-        `;
-        card.onclick = () => openDetailedChart(p);
-        content.appendChild(card);
-    });
-}
 
-// ==================== DETAILED CHART (SCI-FI STYLE) ====================
+// ==================== DETAILED CHART (FULL SCREEN) ====================
 let detailChart = null;
 function openDetailedChart(product) {
     const modal = document.getElementById('chart-modal');
     modal.style.display = 'flex';
     
     document.getElementById('chart-product-name').innerText = product.name;
+    document.getElementById('chart-product-unit').innerText = product.unit || '';
     
     const history = product.history || [];
-    const prices = history.map(h => h.normalized_price || h.price);
+    const unitPrices = history.map(h => h.normalized_price || h.price);
+    const actualPrices = history.map(h => h.price);
     
-    const current = product.normalized_price || product.current_price;
-    const avg = product.avgPrice;
-    const min = Math.min(...prices);
-    const max = Math.max(...prices);
-    const change = product.priceChange || 0;
+    const currentActual = product.current_price;
+    const currentUnit = product.normalized_price || product.current_price;
+    const avgUnit = product.avgPrice;
+    const minUnit = Math.min(...unitPrices);
+    const maxUnit = Math.max(...unitPrices);
+    const changeActual = history.length >= 2 ? (history[history.length-1].price - history[history.length-2].price) : 0;
     
-    // Calculate volatility (standard deviation)
-    const mean = avg;
-    const variance = prices.reduce((sum, p) => sum + Math.pow(p - mean, 2), 0) / prices.length;
-    const volatility = Math.sqrt(variance);
+    // Calculate unit volatility
+    const meanUnit = avgUnit;
+    const varianceUnit = unitPrices.reduce((sum, p) => sum + Math.pow(p - meanUnit, 2), 0) / unitPrices.length;
+    const volatilityUnit = Math.sqrt(varianceUnit);
     
     // Update stats
-    document.getElementById('chart-current').innerHTML = `<span style="color:var(--accent-color)">${current.toFixed(2)}৳</span>`;
-    document.getElementById('chart-avg').innerHTML = `${avg.toFixed(2)}৳`;
-    document.getElementById('chart-min').innerHTML = `<span style="color:#4caf50">${min.toFixed(2)}৳</span>`;
-    document.getElementById('chart-max').innerHTML = `<span style="color:#f44">${max.toFixed(2)}৳</span>`;
+    document.getElementById('chart-actual').innerHTML = `<span style="color:var(--accent-color)">${currentActual.toFixed(2)}৳</span>`;
+    document.getElementById('chart-unit').innerHTML = `<span style="color:var(--accent-secondary)">${currentUnit.toFixed(2)}৳</span>`;
+    document.getElementById('chart-avg').innerHTML = `${avgUnit.toFixed(2)}৳`;
+    document.getElementById('chart-min-max').innerHTML = `<span style="color:#4caf50">${minUnit.toFixed(0)}</span> / <span style="color:#f44">${maxUnit.toFixed(0)}</span>`;
     
-    const changeColor = change < 0 ? '#4caf50' : '#f44';
-    const changeIcon = change < 0 ? 'down' : 'up';
-    document.getElementById('chart-change').innerHTML = `<span style="color:${changeColor}"><i class="fas fa-arrow-${changeIcon}"></i> ${Math.abs(change).toFixed(2)}৳</span>`;
+    const changeColor = changeActual < 0 ? '#4caf50' : (changeActual > 0 ? '#f44' : '#888');
+    const changeIcon = changeActual < 0 ? 'down' : (changeActual > 0 ? 'up' : 'minus');
+    document.getElementById('chart-change').innerHTML = `<span style="color:${changeColor}"><i class="fas fa-arrow-${changeIcon}"></i> ${Math.abs(changeActual).toFixed(2)}৳</span>`;
     
-    const volPercent = (volatility / mean) * 100;
+    const volPercent = (volatilityUnit / meanUnit) * 100;
     let volLabel = 'Low';
     if (volPercent > 15) volLabel = 'High';
     else if (volPercent > 8) volLabel = 'Medium';
-    document.getElementById('chart-volatility').innerHTML = `${volLabel} <span style="font-size:0.8rem;">(±${volatility.toFixed(2)}৳)</span>`;
+    document.getElementById('chart-volatility').innerHTML = `${volLabel} <span style="font-size:0.8rem;">(±${volatilityUnit.toFixed(1)}৳)</span>`;
     
     // Build chart
     const ctx = document.getElementById('price-history-chart').getContext('2d');
     if (detailChart) detailChart.destroy();
     
     const labels = history.map(h => h.date);
-    const data = prices;
-    
-    // Moving average
-    const movingAvg = [];
-    const window = Math.min(7, Math.floor(data.length / 3));
-    for (let i = 0; i < data.length; i++) {
-        const start = Math.max(0, i - window);
-        const subset = data.slice(start, i + 1);
-        movingAvg.push(subset.reduce((a, b) => a + b, 0) / subset.length);
-    }
     
     detailChart = new Chart(ctx, {
         type: 'line',
@@ -1168,142 +1115,69 @@ function openDetailedChart(product) {
             labels: labels,
             datasets: [
                 {
-                    label: 'Price',
-                    data: data,
-                    borderColor: '#03dac6',
-                    backgroundColor: 'rgba(3, 218, 198, 0.2)',
-                    fill: true,
-                    tension: 0.4,
-                    borderWidth: 3,
-                    pointRadius: 5,
-                    pointHoverRadius: 8,
-                    pointBackgroundColor: '#03dac6',
-                    pointBorderColor: '#000',
-                    pointBorderWidth: 2
-                },
-                {
-                    label: 'Moving Average',
-                    data: movingAvg,
+                    label: 'Unit Price (Normalized)',
+                    data: unitPrices,
                     borderColor: '#bb86fc',
-                    borderDash: [5, 5],
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.4,
-                    pointRadius: 0
+                    backgroundColor: 'rgba(187, 134, 252, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    pointHoverRadius: 7,
+                    yAxisID: 'y'
                 },
                 {
-                    label: 'Average',
-                    data: Array(data.length).fill(avg),
-                    borderColor: '#ffeb3b',
-                    borderDash: [10, 5],
-                    borderWidth: 1,
-                    fill: false,
-                    pointRadius: 0
+                    label: 'Actual Price',
+                    data: actualPrices,
+                    borderColor: '#03dac6',
+                    backgroundColor: 'rgba(3, 218, 198, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    borderWidth: 3,
+                    pointRadius: 4,
+                    pointHoverRadius: 7,
+                    yAxisID: 'y1'
                 }
             ]
         },
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            interaction: {
-                mode: 'index',
-                intersect: false,
-            },
+            interaction: { mode: 'index', intersect: false },
             scales: {
                 y: {
-                    grid: { color: '#222', drawBorder: false },
-                    ticks: { 
-                        color: '#aaa',
-                        callback: function(value) {
-                            return value.toFixed(2) + '৳';
-                        }
-                    },
-                    title: { display: true, text: 'Price (৳)', color: '#fff', font: { size: 14 } }
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    grid: { color: 'rgba(255, 255, 255, 0.1)', drawBorder: false },
+                    ticks: { color: '#bb86fc', callback: v => v.toFixed(0) + '৳' },
+                    title: { display: true, text: 'Unit Price (৳)', color: '#bb86fc' }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: { drawOnChartArea: false },
+                    ticks: { color: '#03dac6', callback: v => v.toFixed(0) + '৳' },
+                    title: { display: true, text: 'Actual Price (৳)', color: '#03dac6' }
                 },
                 x: {
-                    grid: { color: '#222', drawBorder: false },
-                    ticks: { color: '#aaa' },
-                    title: { display: true, text: 'Date', color: '#fff', font: { size: 14 } }
+                    grid: { color: 'rgba(255, 255, 255, 0.1)', drawBorder: false },
+                    ticks: { color: '#aaa' }
                 }
             },
             plugins: {
-                legend: {
-                    labels: { 
-                        color: '#fff',
-                        font: { size: 12 },
-                        usePointStyle: true,
-                        padding: 20
-                    }
-                },
+                legend: { labels: { color: '#fff', usePointStyle: true } },
                 tooltip: {
                     backgroundColor: 'rgba(0,0,0,0.9)',
-                    titleColor: '#03dac6',
-                    bodyColor: '#fff',
-                    borderColor: '#03dac6',
+                    titleColor: '#fff',
+                    borderColor: '#333',
                     borderWidth: 1,
-                    padding: 12,
-                    displayColors: true
+                    padding: 10
                 }
-            },
-            animation: {
-                duration: 1000,
-                easing: 'easeInOutQuart'
             }
         }
     });
-    
-    // Generate insights
-    generatePriceInsights(product, prices, avg, min, max, volatility);
-}
-
-function generatePriceInsights(product, prices, avg, min, max, volatility) {
-    const content = document.getElementById('prediction-content');
-    const current = product.normalized_price || product.current_price;
-    
-    const insights = [];
-    
-    // Trend analysis
-    const recentPrices = prices.slice(-7);
-    const trend = recentPrices[recentPrices.length - 1] - recentPrices[0];
-    if (trend < -2) {
-        insights.push({ icon: 'chart-line', color: '#4caf50', text: 'Downward trend detected. Price has been decreasing recently.' });
-    } else if (trend > 2) {
-        insights.push({ icon: 'chart-line', color: '#f44', text: 'Upward trend detected. Price has been increasing recently.' });
-    } else {
-        insights.push({ icon: 'minus', color: '#ffeb3b', text: 'Price stable. No significant trend detected.' });
-    }
-    
-    // Value assessment
-    const percentDiff = ((current - avg) / avg) * 100;
-    if (percentDiff < -10) {
-        insights.push({ icon: 'fire', color: '#4caf50', text: `Great deal! ${Math.abs(percentDiff).toFixed(1)}% below average price.` });
-    } else if (percentDiff > 10) {
-        insights.push({ icon: 'exclamation-triangle', color: '#f44', text: `Overpriced. ${percentDiff.toFixed(1)}% above average price.` });
-    } else {
-        insights.push({ icon: 'check-circle', color: '#03dac6', text: 'Fair price. Close to historical average.' });
-    }
-    
-    // Volatility
-    const volPercent = (volatility / avg) * 100;
-    if (volPercent > 15) {
-        insights.push({ icon: 'bolt', color: '#ff9800', text: 'High volatility. Price fluctuates significantly.' });
-    } else if (volPercent < 5) {
-        insights.push({ icon: 'shield-alt', color: '#03a9f4', text: 'Low volatility. Price is very stable.' });
-    }
-    
-    // Best time to buy
-    if (current <= min * 1.05) {
-        insights.push({ icon: 'star', color: '#ffeb3b', text: '⭐ Best time to buy! Near all-time low.' });
-    } else if (current >= max * 0.95) {
-        insights.push({ icon: 'clock', color: '#f44', text: 'Wait if possible. Near all-time high.' });
-    }
-    
-    content.innerHTML = insights.map(insight => `
-        <div class="insight-item">
-            <i class="fas fa-${insight.icon}" style="color:${insight.color}; font-size:1.2rem;"></i>
-            <span>${insight.text}</span>
-        </div>
-    `).join('');
 }
 
 // ==================== CUSTOM CATEGORIES ====================

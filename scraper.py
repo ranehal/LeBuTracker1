@@ -111,33 +111,40 @@ def normalize_unit(name, price_str):
 async def scrape_category(sem, context, category, current_data):
     async with sem:
         page = await context.new_page()
-        print(f"Scraping {category['name']}...")
+        print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] Scraping {category['name']}...")
         try:
             # Add a small random delay
-            await asyncio.sleep(random.uniform(1, 3))
+            await asyncio.sleep(random.uniform(2, 5))
             
-            await page.goto(category['url'], wait_until="load", timeout=90000)
+            # Use a slightly longer timeout and wait for networkidle
+            response = await page.goto(category['url'], wait_until="load", timeout=120000)
+            
+            if response.status == 403:
+                print(f"  [!] 403 Forbidden for {category['name']}. Might be blocked by Cloudflare.")
+                return False
             
             # Wait for content to appear
             try:
-                await page.wait_for_selector('.product-box', timeout=15000)
+                await page.wait_for_selector('.product-box', timeout=20000)
             except:
+                # If not found, maybe no products in this category?
                 pass
             
             # Auto-scroll to load all items
-            last_height = await page.evaluate("document.body.scrollHeight")
-            for _ in range(20): # Increased scroll limit to capture more items
-                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                await page.wait_for_timeout(2000)
-                new_height = await page.evaluate("document.body.scrollHeight")
-                if new_height == last_height:
-                    break
-                last_height = new_height
+            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            await page.wait_for_timeout(3000)
             
             # Select all product items
             items = await page.query_selector_all('.product-box')
-            print(f"Found {len(items)} items in {category['name']}")
+            print(f"  [+] Found {len(items)} items in {category['name']}")
             
+            if len(items) == 0:
+                # Check if it was really empty or just failed to load
+                content = await page.content()
+                if "403 Forbidden" in content or "Cloudflare" in content:
+                    print(f"  [!] Cloudflare challenge detected for {category['name']}")
+                    return False
+
             today_str = datetime.date.today().isoformat()
             
             for item in items:
@@ -196,9 +203,12 @@ async def scrape_category(sem, context, category, current_data):
 
                 except Exception as e:
                     pass
+            
+            return True
                     
         except Exception as e:
-            print(f"Failed to scrape {category['name']}: {e}")
+            print(f"  [X] Failed to scrape {category['name']}: {e}")
+            return False
         finally:
             await page.close()
 
@@ -209,27 +219,48 @@ async def main():
     enabled_categories = [c for c in all_categories if c.get('enabled', True)]
     
     print(f"Loaded {len(all_categories)} categories from {len(category_data.get('groups', []))} groups")
+    print(f"Starting scrape for {len(enabled_categories)} enabled categories...")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
+        browser = await p.chromium.launch(
+            headless=True,
+            args=["--no-sandbox", "--disable-setuid-sandbox"]
+        )
+        # Use a more realistic context
         context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+            viewport={'width': 1920, 'height': 1080}
         )
         
-        sem = asyncio.Semaphore(3) # Low concurrency to be safe
+        sem = asyncio.Semaphore(2) # Even lower concurrency for stability
         
-        tasks = [scrape_category(sem, context, cat, data) for cat in enabled_categories]
-        await asyncio.gather(*tasks)
+        results = []
+        # Chunk categories to save progress
+        chunk_size = 10
+        for i in range(0, len(enabled_categories), chunk_size):
+            chunk = enabled_categories[i:i + chunk_size]
+            tasks = [scrape_category(sem, context, cat, data) for cat in chunk]
+            chunk_results = await asyncio.gather(*tasks, return_exceptions=True)
+            results.extend(chunk_results)
+            
+            # Save progress after each chunk
+            save_data(data)
+            print(f"Progress: {min(i + chunk_size, len(enabled_categories))}/{len(enabled_categories)} categories processed. Data saved.")
         
         await browser.close()
-        
+    
+    # Final save (redundant but safe)
     save_data(data)
     
     # Also sync the accurate categories to JSON for consistency
     with open('categories.json', 'w', encoding='utf-8') as f:
         json.dump(category_data, f, indent=2)
 
-    print("Scraping complete. Data saved.")
+    success_count = sum(1 for r in results if r is True)
+    fail_count = len(results) - success_count
+    print(f"\nScraping complete!")
+    print(f"Successfully scraped: {success_count}")
+    print(f"Failed: {fail_count}")
 
 if __name__ == "__main__":
     asyncio.run(main())

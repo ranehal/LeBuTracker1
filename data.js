@@ -50477,6 +50477,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 351.0,
         "normalized_price": 351.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 354.0,
+        "normalized_price": 354.0
       }
     ],
     "current_price": 351.0,
@@ -50503,6 +50508,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 185.0,
+        "normalized_price": 185.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 185.0,
         "normalized_price": 185.0
       }
@@ -50533,6 +50543,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 691.0,
         "normalized_price": 691.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 691.0,
+        "normalized_price": 691.0
       }
     ],
     "current_price": 691.0,
@@ -50561,6 +50576,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 339.0,
         "normalized_price": 339.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 333.0,
+        "normalized_price": 333.0
       }
     ],
     "current_price": 339.0,
@@ -50587,6 +50607,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 597.0,
+        "normalized_price": 597.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 597.0,
         "normalized_price": 597.0
       }
@@ -50617,6 +50642,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 491.0,
         "normalized_price": 491.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 491.0,
+        "normalized_price": 491.0
       }
     ],
     "current_price": 491.0,
@@ -50643,6 +50673,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 439.0,
+        "normalized_price": 439.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 439.0,
         "normalized_price": 439.0
       }
@@ -50673,6 +50708,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 489.0,
         "normalized_price": 489.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 489.0,
+        "normalized_price": 489.0
       }
     ],
     "current_price": 489.0,
@@ -50699,6 +50739,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -50729,6 +50774,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 399.0,
         "normalized_price": 399.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 399.0,
+        "normalized_price": 399.0
       }
     ],
     "current_price": 399.0,
@@ -50755,6 +50805,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 150.0,
+        "normalized_price": 150.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 150.0,
         "normalized_price": 150.0
       }
@@ -68941,6 +68996,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 10.0,
         "normalized_price": 10.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 10.0,
+        "normalized_price": 10.0
       }
     ],
     "current_price": 10.0,
@@ -68969,10 +69029,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 45.0,
         "normalized_price": 45.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 40.0,
+        "normalized_price": 40.0
       }
     ],
-    "current_price": 45.0,
-    "normalized_price": 45.0,
+    "current_price": 40.0,
+    "normalized_price": 40.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -69025,6 +69090,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 45.0,
         "normalized_price": 45.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 45.0,
+        "normalized_price": 45.0
       }
     ],
     "current_price": 45.0,
@@ -69053,10 +69123,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 15.0,
         "normalized_price": 15.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 9.0,
+        "normalized_price": 9.0
       }
     ],
-    "current_price": 15.0,
-    "normalized_price": 15.0,
+    "current_price": 9.0,
+    "normalized_price": 9.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -69109,10 +69184,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 25.0,
         "normalized_price": 25.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 20.0,
+        "normalized_price": 20.0
       }
     ],
-    "current_price": 25.0,
-    "normalized_price": 25.0,
+    "current_price": 20.0,
+    "normalized_price": 20.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -69137,10 +69217,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 22.0,
         "normalized_price": 22.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 24.0,
+        "normalized_price": 24.0
       }
     ],
-    "current_price": 22.0,
-    "normalized_price": 22.0,
+    "current_price": 24.0,
+    "normalized_price": 24.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -69193,6 +69278,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 80.0,
         "normalized_price": 80.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 80.0,
+        "normalized_price": 80.0
       }
     ],
     "current_price": 80.0,
@@ -69219,6 +69309,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 150.0,
+        "normalized_price": 150.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 150.0,
         "normalized_price": 150.0
       }
@@ -84573,6 +84668,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 860.0,
         "normalized_price": 1720.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 860.0,
+        "normalized_price": 1720.0
       }
     ],
     "current_price": 860.0,
@@ -84599,6 +84699,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 765.0,
+        "normalized_price": 1530.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 765.0,
         "normalized_price": 1530.0
       }
@@ -84657,6 +84762,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 1450.0,
         "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 1450.0,
+        "normalized_price": 1450.0
       }
     ],
     "current_price": 1450.0,
@@ -84685,6 +84795,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 565.0,
         "normalized_price": 565.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 565.0,
+        "normalized_price": 565.0
       }
     ],
     "current_price": 565.0,
@@ -84711,6 +84826,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 1350.0,
+        "normalized_price": 1350.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 1350.0,
         "normalized_price": 1350.0
       }
@@ -84795,6 +84915,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 495.0,
+        "normalized_price": 495.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 495.0,
         "normalized_price": 495.0
       }
@@ -84993,6 +85118,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 53.0,
         "normalized_price": 53.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 53.0,
+        "normalized_price": 53.0
       }
     ],
     "current_price": 53.0,
@@ -85019,6 +85149,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 16.0,
+        "normalized_price": 16.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 16.0,
         "normalized_price": 16.0
       }
@@ -85049,6 +85184,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 200.0,
         "normalized_price": 200.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 200.0,
+        "normalized_price": 200.0
       }
     ],
     "current_price": 200.0,
@@ -85075,6 +85215,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 170.0,
+        "normalized_price": 170.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 170.0,
         "normalized_price": 170.0
       }
@@ -85105,6 +85250,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 120.0,
         "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
     "current_price": 120.0,
@@ -85131,6 +85281,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 165.0,
+        "normalized_price": 165.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 165.0,
         "normalized_price": 165.0
       }
@@ -90278,6 +90433,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 200.0,
         "normalized_price": 200.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 200.0,
+        "normalized_price": 200.0
       }
     ],
     "current_price": 200.0,
@@ -90306,10 +90466,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 55.0,
         "normalized_price": 55.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 60.0,
+        "normalized_price": 60.0
       }
     ],
-    "current_price": 55.0,
-    "normalized_price": 55.0,
+    "current_price": 60.0,
+    "normalized_price": 60.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -90332,6 +90497,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 12.0,
+        "normalized_price": 12.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 12.0,
         "normalized_price": 12.0
       }
@@ -90362,6 +90532,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 7.0,
         "normalized_price": 7.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 7.0,
+        "normalized_price": 7.0
       }
     ],
     "current_price": 7.0,
@@ -90388,6 +90563,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 55.0,
+        "normalized_price": 91.67
+      },
+      {
+        "date": "2026-02-20",
         "price": 55.0,
         "normalized_price": 91.67
       }
@@ -90418,6 +90598,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 370.0,
         "normalized_price": 370.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 370.0,
+        "normalized_price": 370.0
       }
     ],
     "current_price": 370.0,
@@ -90444,6 +90629,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 440.0,
+        "normalized_price": 440.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 440.0,
         "normalized_price": 440.0
       }
@@ -90474,6 +90664,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 675.0,
         "normalized_price": 2700.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 675.0,
+        "normalized_price": 2700.0
       }
     ],
     "current_price": 675.0,
@@ -90500,6 +90695,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 390.0,
+        "normalized_price": 390.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 390.0,
         "normalized_price": 390.0
       }
@@ -90530,6 +90730,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 155.0,
         "normalized_price": 155.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 155.0,
+        "normalized_price": 155.0
       }
     ],
     "current_price": 155.0,
@@ -90556,6 +90761,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 495.0,
+        "normalized_price": 495.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 495.0,
         "normalized_price": 495.0
       }
@@ -90586,6 +90796,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 45.0,
         "normalized_price": 45.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 45.0,
+        "normalized_price": 45.0
       }
     ],
     "current_price": 45.0,
@@ -90612,6 +90827,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 695.0,
+        "normalized_price": 695.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 695.0,
         "normalized_price": 695.0
       }
@@ -90642,6 +90862,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 152.0,
         "normalized_price": 253.33
+      },
+      {
+        "date": "2026-02-20",
+        "price": 152.0,
+        "normalized_price": 253.33
       }
     ],
     "current_price": 152.0,
@@ -90668,6 +90893,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 175.0,
+        "normalized_price": 291.67
+      },
+      {
+        "date": "2026-02-20",
         "price": 175.0,
         "normalized_price": 291.67
       }
@@ -90698,10 +90928,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 425.0,
         "normalized_price": 425.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 430.0,
+        "normalized_price": 430.0
       }
     ],
-    "current_price": 425.0,
-    "normalized_price": 425.0,
+    "current_price": 430.0,
+    "normalized_price": 430.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -90726,10 +90961,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 465.0,
         "normalized_price": 465.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 452.0,
+        "normalized_price": 452.0
       }
     ],
-    "current_price": 465.0,
-    "normalized_price": 465.0,
+    "current_price": 452.0,
+    "normalized_price": 452.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -90752,6 +90992,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 145.0,
+        "normalized_price": 145.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 145.0,
         "normalized_price": 145.0
       }
@@ -90782,10 +91027,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 85.0,
         "normalized_price": 85.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 95.0,
+        "normalized_price": 95.0
       }
     ],
-    "current_price": 85.0,
-    "normalized_price": 85.0,
+    "current_price": 95.0,
+    "normalized_price": 95.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -90808,6 +91058,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 95.0,
+        "normalized_price": 95.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 95.0,
         "normalized_price": 95.0
       }
@@ -90836,6 +91091,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 95.0,
+        "normalized_price": 95.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 95.0,
         "normalized_price": 95.0
       }
@@ -90894,6 +91154,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 45.0,
         "normalized_price": 45.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 45.0,
+        "normalized_price": 45.0
       }
     ],
     "current_price": 45.0,
@@ -90920,6 +91185,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 50.0,
+        "normalized_price": 50.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 50.0,
         "normalized_price": 50.0
       }
@@ -90950,6 +91220,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 120.0,
         "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
     "current_price": 120.0,
@@ -90976,6 +91251,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 70.0,
+        "normalized_price": 70.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 70.0,
         "normalized_price": 70.0
       }
@@ -91006,6 +91286,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 85.0,
         "normalized_price": 85.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 85.0,
+        "normalized_price": 85.0
       }
     ],
     "current_price": 85.0,
@@ -91034,6 +91319,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 120.0,
         "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
     "current_price": 120.0,
@@ -91060,6 +91350,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 120.0,
+        "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 120.0,
         "normalized_price": 120.0
       }
@@ -91146,6 +91441,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 18.0,
         "normalized_price": 18.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 18.0,
+        "normalized_price": 18.0
       }
     ],
     "current_price": 18.0,
@@ -91202,6 +91502,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 105.0,
         "normalized_price": 105.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 105.0,
+        "normalized_price": 105.0
       }
     ],
     "current_price": 105.0,
@@ -91228,6 +91533,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 100.0,
+        "normalized_price": 100.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 100.0,
         "normalized_price": 100.0
       }
@@ -91258,6 +91568,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 40.0,
         "normalized_price": 40.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 40.0,
+        "normalized_price": 40.0
       }
     ],
     "current_price": 40.0,
@@ -91284,6 +91599,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 35.0,
+        "normalized_price": 35.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 35.0,
         "normalized_price": 35.0
       }
@@ -91314,6 +91634,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 160.0,
         "normalized_price": 160.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 160.0,
+        "normalized_price": 160.0
       }
     ],
     "current_price": 160.0,
@@ -91340,6 +91665,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 80.0,
+        "normalized_price": 80.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 80.0,
         "normalized_price": 80.0
       }
@@ -91370,6 +91700,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 120.0,
         "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
     "current_price": 120.0,
@@ -91396,6 +91731,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 150.0,
+        "normalized_price": 150.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 150.0,
         "normalized_price": 150.0
       }
@@ -91426,6 +91766,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 70.0,
         "normalized_price": 70.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 70.0,
+        "normalized_price": 70.0
       }
     ],
     "current_price": 70.0,
@@ -91452,6 +91797,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 12.0,
+        "normalized_price": 12.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 12.0,
         "normalized_price": 12.0
       }
@@ -91510,6 +91860,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 400.0,
         "normalized_price": 400.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
     "current_price": 400.0,
@@ -91536,6 +91891,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 75.0,
+        "normalized_price": 75.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 75.0,
         "normalized_price": 75.0
       }
@@ -91594,6 +91954,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 15.0,
         "normalized_price": 15.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 15.0,
+        "normalized_price": 15.0
       }
     ],
     "current_price": 15.0,
@@ -91620,6 +91985,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 400.0,
+        "normalized_price": 400.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 400.0,
         "normalized_price": 400.0
       }
@@ -91650,6 +92020,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 120.0,
         "normalized_price": 120.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
     "current_price": 120.0,
@@ -91676,6 +92051,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 180.0,
+        "normalized_price": 180.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 180.0,
         "normalized_price": 180.0
       }
@@ -91706,6 +92086,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 60.0,
         "normalized_price": 60.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 60.0,
+        "normalized_price": 60.0
       }
     ],
     "current_price": 60.0,
@@ -91732,6 +92117,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 40.0,
+        "normalized_price": 40.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 40.0,
         "normalized_price": 40.0
       }
@@ -91762,6 +92152,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 20.0,
         "normalized_price": 20.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 20.0,
+        "normalized_price": 20.0
       }
     ],
     "current_price": 20.0,
@@ -91790,6 +92185,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 25.0,
         "normalized_price": 25.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 25.0,
+        "normalized_price": 25.0
       }
     ],
     "current_price": 25.0,
@@ -91816,6 +92216,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 25.0,
+        "normalized_price": 25.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 25.0,
         "normalized_price": 25.0
       }
@@ -91874,6 +92279,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 25.0,
         "normalized_price": 25.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 25.0,
+        "normalized_price": 25.0
       }
     ],
     "current_price": 25.0,
@@ -91900,6 +92310,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 20.0,
+        "normalized_price": 20.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 20.0,
         "normalized_price": 20.0
       }
@@ -91930,6 +92345,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 20.0,
         "normalized_price": 20.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 20.0,
+        "normalized_price": 20.0
       }
     ],
     "current_price": 20.0,
@@ -91956,6 +92376,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 100.0,
+        "normalized_price": 100.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 100.0,
         "normalized_price": 100.0
       }
@@ -91986,6 +92411,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 50.0,
         "normalized_price": 50.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 50.0,
+        "normalized_price": 50.0
       }
     ],
     "current_price": 50.0,
@@ -92012,6 +92442,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 45.0,
+        "normalized_price": 45.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 45.0,
         "normalized_price": 45.0
       }
@@ -92042,6 +92477,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 145.0,
         "normalized_price": 145.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 145.0,
+        "normalized_price": 145.0
       }
     ],
     "current_price": 145.0,
@@ -92068,6 +92508,11 @@ window.productData = {
       },
       {
         "date": "2026-02-19",
+        "price": 40.0,
+        "normalized_price": 40.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 40.0,
         "normalized_price": 40.0
       }
@@ -132733,6 +133178,11 @@ window.productData = {
         "date": "2026-02-19",
         "price": 310.0,
         "normalized_price": 310.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 310.0,
+        "normalized_price": 310.0
       }
     ],
     "current_price": 310.0,
@@ -132756,10 +133206,15 @@ window.productData = {
         "date": "2026-02-19",
         "price": 495.0,
         "normalized_price": 495.0
+      },
+      {
+        "date": "2026-02-20",
+        "price": 520.0,
+        "normalized_price": 520.0
       }
     ],
-    "current_price": 495.0,
-    "normalized_price": 495.0,
+    "current_price": 520.0,
+    "normalized_price": 520.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -133782,6 +134237,11 @@ window.productData = {
     "history": [
       {
         "date": "2026-02-19",
+        "price": 60.0,
+        "normalized_price": 60.0
+      },
+      {
+        "date": "2026-02-20",
         "price": 60.0,
         "normalized_price": 60.0
       }
