@@ -132939,12 +132939,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 165.0,
-        "normalized_price": 3837.21
+        "price": 180.0,
+        "normalized_price": 4186.05
       }
     ],
-    "current_price": 165.0,
-    "normalized_price": 3837.21,
+    "current_price": 180.0,
+    "normalized_price": 4186.05,
     "unit": "43 gm",
     "unit_type": "kg"
   },
@@ -151485,12 +151485,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 330.0,
-        "normalized_price": 330.0
+        "price": 333.0,
+        "normalized_price": 333.0
       }
     ],
-    "current_price": 330.0,
-    "normalized_price": 330.0,
+    "current_price": 333.0,
+    "normalized_price": 333.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -151661,12 +151661,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 649.0,
-        "normalized_price": 649.0
+        "price": 665.0,
+        "normalized_price": 665.0
       }
     ],
-    "current_price": 649.0,
-    "normalized_price": 649.0,
+    "current_price": 665.0,
+    "normalized_price": 665.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -151749,12 +151749,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 309.0,
-        "normalized_price": 309.0
+        "price": 289.0,
+        "normalized_price": 289.0
       }
     ],
-    "current_price": 309.0,
-    "normalized_price": 309.0,
+    "current_price": 289.0,
+    "normalized_price": 289.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -151837,12 +151837,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 603.0,
-        "normalized_price": 603.0
+        "price": 599.0,
+        "normalized_price": 599.0
       }
     ],
-    "current_price": 603.0,
-    "normalized_price": 603.0,
+    "current_price": 599.0,
+    "normalized_price": 599.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -151925,12 +151925,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 480.0,
-        "normalized_price": 480.0
+        "price": 449.0,
+        "normalized_price": 449.0
       }
     ],
-    "current_price": 480.0,
-    "normalized_price": 480.0,
+    "current_price": 449.0,
+    "normalized_price": 449.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -152101,12 +152101,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 480.0,
-        "normalized_price": 480.0
+        "price": 483.0,
+        "normalized_price": 483.0
       }
     ],
-    "current_price": 480.0,
-    "normalized_price": 480.0,
+    "current_price": 483.0,
+    "normalized_price": 483.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -205995,12 +205995,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 18.0,
-        "normalized_price": 18.0
+        "price": 16.0,
+        "normalized_price": 16.0
       }
     ],
-    "current_price": 18.0,
-    "normalized_price": 18.0,
+    "current_price": 16.0,
+    "normalized_price": 16.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -206121,12 +206121,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 70.0,
-        "normalized_price": 70.0
+        "price": 65.0,
+        "normalized_price": 65.0
       }
     ],
-    "current_price": 70.0,
-    "normalized_price": 70.0,
+    "current_price": 65.0,
+    "normalized_price": 65.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -258840,12 +258840,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 425.0,
-        "normalized_price": 851.7
+        "price": 520.0,
+        "normalized_price": 1042.08
       }
     ],
-    "current_price": 425.0,
-    "normalized_price": 851.7,
+    "current_price": 520.0,
+    "normalized_price": 1042.08,
     "unit": "499 gm",
     "unit_type": "kg"
   },
@@ -258928,12 +258928,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 275.0,
-        "normalized_price": 689.22
+        "price": 320.0,
+        "normalized_price": 802.01
       }
     ],
-    "current_price": 275.0,
-    "normalized_price": 689.22,
+    "current_price": 320.0,
+    "normalized_price": 802.01,
     "unit": "399 gm",
     "unit_type": "kg"
   },
@@ -259016,12 +259016,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 850.0,
-        "normalized_price": 850.0
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
-    "current_price": 850.0,
-    "normalized_price": 850.0,
+    "current_price": 950.0,
+    "normalized_price": 950.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -259104,12 +259104,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 295.0,
-        "normalized_price": 196.8
+        "price": 330.0,
+        "normalized_price": 220.15
       }
     ],
-    "current_price": 295.0,
-    "normalized_price": 196.8,
+    "current_price": 330.0,
+    "normalized_price": 220.15,
     "unit": "1.499 kg",
     "unit_type": "kg"
   },
@@ -259192,12 +259192,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 410.0,
-        "normalized_price": 137.12
+        "price": 420.0,
+        "normalized_price": 140.47
       }
     ],
-    "current_price": 410.0,
-    "normalized_price": 137.12,
+    "current_price": 420.0,
+    "normalized_price": 140.47,
     "unit": "2.99 kg",
     "unit_type": "kg"
   },
@@ -259280,12 +259280,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 185.0,
-        "normalized_price": 462.5
+        "price": 210.0,
+        "normalized_price": 525.0
       }
     ],
-    "current_price": 185.0,
-    "normalized_price": 462.5,
+    "current_price": 210.0,
+    "normalized_price": 525.0,
     "unit": "400 gm",
     "unit_type": "kg"
   },
@@ -259544,12 +259544,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 350.0,
-        "normalized_price": 350.0
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
-    "current_price": 350.0,
-    "normalized_price": 350.0,
+    "current_price": 400.0,
+    "normalized_price": 400.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -261128,12 +261128,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 450.0,
-        "normalized_price": 90.02
+        "price": 470.0,
+        "normalized_price": 94.02
       }
     ],
-    "current_price": 450.0,
-    "normalized_price": 90.02,
+    "current_price": 470.0,
+    "normalized_price": 94.02,
     "unit": "4.999 kg",
     "unit_type": "kg"
   },
@@ -263504,12 +263504,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 620.0,
-        "normalized_price": 620.0
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
-    "current_price": 620.0,
-    "normalized_price": 620.0,
+    "current_price": 650.0,
+    "normalized_price": 650.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -269166,12 +269166,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 665.0,
-        "normalized_price": 665.0
+        "price": 639.0,
+        "normalized_price": 639.0
       }
     ],
-    "current_price": 665.0,
-    "normalized_price": 665.0,
+    "current_price": 639.0,
+    "normalized_price": 639.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -269606,12 +269606,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 160.0,
-        "normalized_price": 160.0
+        "price": 120.0,
+        "normalized_price": 120.0
       }
     ],
-    "current_price": 160.0,
-    "normalized_price": 160.0,
+    "current_price": 120.0,
+    "normalized_price": 120.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -269694,12 +269694,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 50.0,
-        "normalized_price": 50.0
+        "price": 45.0,
+        "normalized_price": 45.0
       }
     ],
-    "current_price": 50.0,
-    "normalized_price": 50.0,
+    "current_price": 45.0,
+    "normalized_price": 45.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -271311,12 +271311,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 70.0,
-        "normalized_price": 70.0
+        "price": 65.0,
+        "normalized_price": 65.0
       }
     ],
-    "current_price": 70.0,
-    "normalized_price": 70.0,
+    "current_price": 65.0,
+    "normalized_price": 65.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -271399,12 +271399,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 435.0,
-        "normalized_price": 145.0
+        "price": 429.0,
+        "normalized_price": 143.0
       }
     ],
-    "current_price": 435.0,
-    "normalized_price": 145.0,
+    "current_price": 429.0,
+    "normalized_price": 143.0,
     "unit": "3.0 kg",
     "unit_type": "kg"
   },
@@ -272015,12 +272015,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 120.0,
-        "normalized_price": 120.0
+        "price": 110.0,
+        "normalized_price": 110.0
       }
     ],
-    "current_price": 120.0,
-    "normalized_price": 120.0,
+    "current_price": 110.0,
+    "normalized_price": 110.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -272455,12 +272455,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 120.0,
-        "normalized_price": 120.0
+        "price": 110.0,
+        "normalized_price": 110.0
       }
     ],
-    "current_price": 120.0,
-    "normalized_price": 120.0,
+    "current_price": 110.0,
+    "normalized_price": 110.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -272807,12 +272807,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 150.0,
-        "normalized_price": 150.0
+        "price": 135.0,
+        "normalized_price": 135.0
       }
     ],
-    "current_price": 150.0,
-    "normalized_price": 150.0,
+    "current_price": 135.0,
+    "normalized_price": 135.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -273335,12 +273335,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 60.0,
-        "normalized_price": 1090.91
+        "price": 65.0,
+        "normalized_price": 1181.82
       }
     ],
-    "current_price": 60.0,
-    "normalized_price": 1090.91,
+    "current_price": 65.0,
+    "normalized_price": 1181.82,
     "unit": "55 gm",
     "unit_type": "kg"
   },
@@ -273863,12 +273863,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 120.0,
-        "normalized_price": 120.0
+        "price": 130.0,
+        "normalized_price": 130.0
       }
     ],
-    "current_price": 120.0,
-    "normalized_price": 120.0,
+    "current_price": 130.0,
+    "normalized_price": 130.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -337249,12 +337249,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 135.0,
-        "normalized_price": 1588.24
+        "price": 140.0,
+        "normalized_price": 1647.06
       }
     ],
-    "current_price": 135.0,
-    "normalized_price": 1588.24,
+    "current_price": 140.0,
+    "normalized_price": 1647.06,
     "unit": "85 gm",
     "unit_type": "kg"
   },
@@ -337337,12 +337337,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 135.0,
-        "normalized_price": 1588.24
+        "price": 140.0,
+        "normalized_price": 1647.06
       }
     ],
-    "current_price": 135.0,
-    "normalized_price": 1588.24,
+    "current_price": 140.0,
+    "normalized_price": 1647.06,
     "unit": "85 gm",
     "unit_type": "kg"
   },
@@ -400312,12 +400312,12 @@ window.productData = {
       },
       {
         "date": "2026-03-05",
-        "price": 50.0,
-        "normalized_price": 50.0
+        "price": 45.0,
+        "normalized_price": 45.0
       }
     ],
-    "current_price": 50.0,
-    "normalized_price": 50.0,
+    "current_price": 45.0,
+    "normalized_price": 45.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -436395,6 +436395,78 @@ window.productData = {
     "current_price": 50.0,
     "normalized_price": 2500.0,
     "unit": "20 gm",
+    "unit_type": "kg"
+  },
+  "shwapnokismisroundraisinsloosekg": {
+    "id": "shwapnokismisroundraisinsloosekg",
+    "name": "Shwapno Kismis Round (Raisins) Loose kg",
+    "url": "https://www.shwapno.com/shwapno-kismis-raisins-loose-kg",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Spices",
+    "history": [
+      {
+        "date": "2026-03-05",
+        "price": 1110.0,
+        "normalized_price": 1110.0
+      }
+    ],
+    "current_price": 1110.0,
+    "normalized_price": 1110.0,
+    "unit": "Per Piece",
+    "unit_type": "piece"
+  },
+  "shwapnokathbadamalmondloosekg": {
+    "id": "shwapnokathbadamalmondloosekg",
+    "name": "Shwapno Kath Badam (Almond) Loose kg",
+    "url": "https://www.shwapno.com/shwapno-kath-badam-almond-loose-kg-2",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa95f7115075f231eccc9b_Shwapno-Kath-Badam-Almond-Loose-Kg_1_415.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-03-05",
+        "price": 1765.0,
+        "normalized_price": 1765.0
+      }
+    ],
+    "current_price": 1765.0,
+    "normalized_price": 1765.0,
+    "unit": "Per Piece",
+    "unit_type": "piece"
+  },
+  "goldmarkcheesekrackersbiscuit35gmbuy3get1free": {
+    "id": "goldmarkcheesekrackersbiscuit35gmbuy3get1free",
+    "name": "GoldMark Cheese Krackers Biscuit 35gm (Buy3 Get1 Free)",
+    "url": "https://www.shwapno.com/goldmark-cheese-krackers-biscuit-35gm-buy3-get1-free",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Biscuits Others",
+    "history": [
+      {
+        "date": "2026-03-05",
+        "price": 30.0,
+        "normalized_price": 857.14
+      }
+    ],
+    "current_price": 30.0,
+    "normalized_price": 857.14,
+    "unit": "35 gm",
+    "unit_type": "kg"
+  },
+  "godrejpowerpockettangydelight10gmbuy4get1free": {
+    "id": "godrejpowerpockettangydelight10gmbuy4get1free",
+    "name": "Godrej Power Pocket Tangy Delight 10gm (Buy4 Get1 Free)",
+    "url": "https://www.shwapno.com/godrej-power-pocket-tangy-delight-10gm-buy4-get1-free",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Air Fresheners",
+    "history": [
+      {
+        "date": "2026-03-05",
+        "price": 300.0,
+        "normalized_price": 30000.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 30000.0,
+    "unit": "10 gm",
     "unit_type": "kg"
   }
 };
