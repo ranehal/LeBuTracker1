@@ -29525,12 +29525,12 @@ window.productData = {
       },
       {
         "date": "2026-03-12",
-        "price": 430.0,
-        "normalized_price": 1228.57
+        "price": 450.0,
+        "normalized_price": 1285.71
       }
     ],
-    "current_price": 430.0,
-    "normalized_price": 1228.57,
+    "current_price": 450.0,
+    "normalized_price": 1285.71,
     "unit": "350 gm",
     "unit_type": "kg"
   },
@@ -51027,12 +51027,12 @@ window.productData = {
       },
       {
         "date": "2026-03-12",
-        "price": 159.0,
-        "normalized_price": 648.98
+        "price": 150.0,
+        "normalized_price": 612.24
       }
     ],
-    "current_price": 159.0,
-    "normalized_price": 648.98,
+    "current_price": 150.0,
+    "normalized_price": 612.24,
     "unit": "245 ml",
     "unit_type": "liter"
   },
@@ -128675,6 +128675,11 @@ window.productData = {
         "date": "2026-03-07",
         "price": 235.0,
         "normalized_price": 712.12
+      },
+      {
+        "date": "2026-03-12",
+        "price": 235.0,
+        "normalized_price": 712.12
       }
     ],
     "current_price": 235.0,
@@ -128728,6 +128733,11 @@ window.productData = {
         "date": "2026-03-07",
         "price": 300.0,
         "normalized_price": 923.08
+      },
+      {
+        "date": "2026-03-12",
+        "price": 300.0,
+        "normalized_price": 923.08
       }
     ],
     "current_price": 300.0,
@@ -128779,6 +128789,11 @@ window.productData = {
       },
       {
         "date": "2026-03-07",
+        "price": 100.0,
+        "normalized_price": 333.33
+      },
+      {
+        "date": "2026-03-12",
         "price": 100.0,
         "normalized_price": 333.33
       }
@@ -142095,6 +142110,11 @@ window.productData = {
       },
       {
         "date": "2026-02-26",
+        "price": 1250.0,
+        "normalized_price": 1562.5
+      },
+      {
+        "date": "2026-03-12",
         "price": 1250.0,
         "normalized_price": 1562.5
       }
@@ -314545,12 +314565,12 @@ window.productData = {
       },
       {
         "date": "2026-03-12",
-        "price": 199.0,
-        "normalized_price": 199.0
+        "price": 222.0,
+        "normalized_price": 222.0
       }
     ],
-    "current_price": 199.0,
-    "normalized_price": 199.0,
+    "current_price": 222.0,
+    "normalized_price": 222.0,
     "unit": "1.0 kg",
     "unit_type": "kg"
   },
@@ -349670,12 +349690,12 @@ window.productData = {
       },
       {
         "date": "2026-03-12",
-        "price": 450.0,
-        "normalized_price": 450.0
+        "price": 495.0,
+        "normalized_price": 495.0
       }
     ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
+    "current_price": 495.0,
+    "normalized_price": 495.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -375040,12 +375060,12 @@ window.productData = {
       },
       {
         "date": "2026-03-12",
-        "price": 75.0,
-        "normalized_price": 75.0
+        "price": 55.0,
+        "normalized_price": 55.0
       }
     ],
-    "current_price": 75.0,
-    "normalized_price": 75.0,
+    "current_price": 55.0,
+    "normalized_price": 55.0,
     "unit": "Per Piece",
     "unit_type": "piece"
   },
@@ -610980,5 +611000,41 @@ window.productData = {
     "normalized_price": 1250.0,
     "unit": "100 ml",
     "unit_type": "liter"
+  },
+  "glucondinstantenergyregular40050gmjar": {
+    "id": "glucondinstantenergyregular40050gmjar",
+    "name": "Glucon-D Instant Energy Regular 400+50gm (Jar)",
+    "url": "https://www.shwapno.com/glucon-d-instant-energy-regular-500-gm-in-jar",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-03-12",
+        "price": 180.0,
+        "normalized_price": 3600.0
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 3600.0,
+    "unit": "50 gm",
+    "unit_type": "kg"
+  },
+  "lebudishwashingbar300gmbuy2savetk20": {
+    "id": "lebudishwashingbar300gmbuy2savetk20",
+    "name": "Lebu+Dish Washing Bar 300gm (Buy2 Save tk20/-)",
+    "url": "https://www.shwapno.com/lebudish-washing-bar-300gm-buy2-save-tk20",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Dish Cleaner",
+    "history": [
+      {
+        "date": "2026-03-12",
+        "price": 60.0,
+        "normalized_price": 200.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 200.0,
+    "unit": "300 gm",
+    "unit_type": "kg"
   }
 };
